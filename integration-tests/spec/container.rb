@@ -81,6 +81,7 @@ ArquillianMethods::Configurator.configure do |config|
 
   config.after(:suite) do
     Thread.current[:test_runner_adaptor].afterSuite rescue nil
+    Thread.current[:test_runner_adaptor].shutdown
   end
 
 end
