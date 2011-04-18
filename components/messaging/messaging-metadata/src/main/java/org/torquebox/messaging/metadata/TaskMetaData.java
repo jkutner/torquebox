@@ -27,6 +27,7 @@ public class TaskMetaData {
     private String location;
     private String queueSuffix;
     private int concurrency = 1;
+    private boolean durable = true;
     private String simpleName;
 
     public TaskMetaData() {
@@ -76,6 +77,14 @@ public class TaskMetaData {
 
     public Integer getConcurrency() {
         return this.concurrency;
+    }
+
+    public void setDurable(boolean durable) {
+        this.durable = durable;
+    }
+
+    public boolean isDurable() {
+        return durable;
     }
 
     public void setSimpleName(String simpleName) {

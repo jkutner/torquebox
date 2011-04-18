@@ -36,7 +36,7 @@ public class ManagedQueue extends AbstractManagedDestination {
     }
 
     public void create() throws Exception {
-        log.trace(  "Creating queue: " + getName()  );
+        log.trace(  "Creating queue: " + getName() + ", durable: " + isDurable()  );
         getServer().createQueue( false, getName(), "", this.isDurable(), getName() );
         log.trace(  "Created queue: " + getName()  );
     }

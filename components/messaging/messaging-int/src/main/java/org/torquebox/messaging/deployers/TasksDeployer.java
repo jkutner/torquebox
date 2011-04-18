@@ -69,6 +69,8 @@ public class TasksDeployer extends AbstractDeployer {
         if (task.getConcurrency() > 0) {
             QueueMetaData queue = new QueueMetaData();
             queue.setName( queueName );
+            queue.setDurable( task.isDurable() );
+
             AttachmentUtils.multipleAttach( unit, queue, queue.getName() );
 
             MessageProcessorMetaData processorMetaData = new MessageProcessorMetaData();

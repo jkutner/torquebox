@@ -101,8 +101,11 @@ public class TasksYamlParsingDeployer extends AbstractSplitYamlParsingDeployer {
                 task = new TaskMetaData();
                 task.setRubyClassName( rubyClassName );
             }
-            
-            task.setConcurrency( (Integer)options.get( "concurrency") );
+
+            task.setConcurrency( (Integer)options.get( "concurrency" ) );
+            if (options.containsKey("durable")) {
+                task.setDurable( (Boolean)options.get( "durable" ) );
+            }
 
             return task;
         }
